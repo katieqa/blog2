@@ -26,7 +26,7 @@ class AppTest(TestCase):
 
     def test_ask_create_blogs(self):
         with patch('builtins.input') as mocked_input:
-            mocked_input.side_effect('Test', 'Test Author') #returns the first attribute the first call, second attribute second time it's called etc
+            mocked_input.side_effect=('Test', 'Test Author') #returns the first attribute the first call, second attribute second time it's called etc
             app.ask_create_blog()
             self.assertIsNotNone(app.blogs.get('Test'))
 
